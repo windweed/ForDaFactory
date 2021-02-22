@@ -1,12 +1,13 @@
+/**
+ * 1两数之和
+*/
 #include <vector>
 #include <unordered_map>
 
 using namespace std;
 
-
-class Solution {
+class OtherSolution {
 public:
-
     /**
      * @brief leetcode 1 two sum 两数之和 easy
      *      给定一个整数数组nums和一个整数目标值，在数组中找出和为目标值的那两个整数，
