@@ -1,8 +1,9 @@
 /**
  * @file 整数相关
- * 7整数反转, 9回文数
+ * 7整数反转, 9回文数，13罗马数字转整数
 */
 #include <cstdint>
+#include <string>
 
 using namespace std;
 
@@ -53,6 +54,47 @@ public:
         }
         return x == result || x == result / 10;
     }
+    /**
+     * @brief leetcode 13 roman-to-integer 罗马数字转整数 easy
+     *      给定一个罗马数字，将其转换成整数，输入范围 1~3999 。
+     * @note 罗马字母： I/1, V/5, X/10, L/50, C/100, D/500, M/1000。
+     *      通常情况下，小的数在大的数右边。有六个特例：
+     *      * I在V/X左边表示4/9
+     *      * X在L/C左边表示40/90
+     *      * C在D/M左边表示400/900
+    */
+    int romanToInt(string s) {
+        int sum = 0;
+        int pre_num = singalRomanToInt(s.at(0));
+        for (int i = 1; i < s.length(); i++) {
+            int cur_num = singalRomanToInt(s.at(i));
+            if (pre_num < cur_num) {
+                sum -= pre_num;
+            } else {
+                sum += pre_num;
+            }
+            pre_num = cur_num;
+        }
+        // 最后一个
+        sum += pre_num;
+        return sum;
+    }
+    // helper function
+    int singalRomanToInt(char c) {
+        switch (c)
+        {
+        case 'I': return 1;
+        case 'V': return 5;
+        case 'X': return 10;
+        case 'L': return 50;
+        case 'C': return 100;
+        case 'D': return 500;
+        case 'M': return 1000;
+        default: return 0;
+        }
+    }
 
+
+    
 };
 
