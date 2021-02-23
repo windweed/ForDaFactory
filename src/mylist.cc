@@ -11,7 +11,7 @@ using namespace std;
 class ListSolution {
 public:
     /**
-     * @brief leetcode 12 merge-two-sorted-lists 合并有序链表 easy
+     * @brief leetcode 21 merge-two-sorted-lists 合并有序链表 easy
     */
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         ListNode prev_head = ListNode(-1);
