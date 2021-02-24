@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "stack": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "ranges": "cpp"
     }
 }

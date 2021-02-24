@@ -27,7 +27,9 @@ DO NOT forget to Update !!!
 
 [src/strings.cc](src/strings.cc)
 
-* 14-最长公共前缀LCP
+* 14-最长公共前缀LCP:Lognest-common-prefix
+* 28-实现strstr():implement-strstr()
+* 35-搜索插入位置:search-insert-positon
 
 ## 整数
 
@@ -41,3 +43,5 @@ DO NOT forget to Update !!!
 
 [src/others.cc](src/others.cc)
 * 1-两数之和:tow-sum
+* 26-删除排序数组中的重复项:remove-duplicates-from-sorted-array
+* 27-移除元素:remove-element
