@@ -1,8 +1,9 @@
 /**
- * 1两数之和，26删除排序数组中的重复项，27移除元素
+ * 1两数之和，26删除排序数组中的重复项，27移除元素，53最大子序和
 */
 #include <vector>
 #include <unordered_map>
+#include <string>
 
 using namespace std;
 
@@ -79,6 +80,21 @@ public:
             }
         }
         return slow;
+    }
+
+    /**
+     * @brief leetcode 53 maximum-subarray 最大子序和 easy
+     *      给定一个整数数组，找到一个具有最大和的连续子数组，返回其最大和
+     * @example 输入 nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4],
+     *      连续子数组[4, -1, 2, 1]的和最大，为6。因此返回6。
+    */
+    int maxSubArray(vector<int>& nums) {
+        int pre = 0, max_ans = nums[0];
+        for (int const& x : nums) {
+            pre = max(pre + x, x);
+            max_ans = max(max_ans, pre);
+        }
+        return max_ans;
     }
 };
 
