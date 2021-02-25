@@ -1,9 +1,10 @@
 /**
  * @file 整数相关
- * 7整数反转, 9回文数，13罗马数字转整数
+ * 7整数反转, 9回文数，13罗马数字转整数，66加一，67二进制求和
 */
 #include <cstdint>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ public:
      * @example 输入x = 123, 输出321。
      *      输入x = -123, 输出-321。
     */
-    int reverse(int x) {
+    int reverseInteger(int x) {
         int result = 0;
         while (x != 0) {
             int pop = x % 10;
@@ -94,7 +95,68 @@ public:
         }
     }
 
+    /**
+     * @brief leetcode 66 plus one 加一 easy
+     *      给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一
+     *      最高位数字存放在数组的首位，数组中每个元素只存储单个数字。
+     *      可以假设除了0之外，这个整数不会以0开头。
+     * @example 输入digits = [1,2,3], 输出 [1,2,4]
+    */
+    vector<int> plusOne(vector<int>& digits) {
+        for (int i = digits.size() - 1; i >= 0; i--) {
+            digits[i]++;
+            digits[i] %= 10;
+            // 只有 9 加一才会产生进位。
+            if (digits[i] != 0) { // 某一位没产生进位，说明已经加完
+                return digits;
+            }
+        }
+        // 一直进位到了最高位
+        digits.insert(digits.begin(), 1);
+        return digits;
+    }
 
-    
+    /**
+     * @brief leetcode 67 add-binary 二进制求和 easy
+     *      给定两个二进制字符串，返回它们的和(用二进制表示)
+     *      输入为非空，只包含1和0。
+     * @example a = "11", b = "1", 输出 "100"
+     *          a = "1010", b = "1011"，输出 "10101"
+    */
+    string addBinary(string a, string b) {
+        string result;
+
+        // 先反转并填充0到相同长度。
+        reverse(a.begin(), a.end());
+        reverse(b.begin(), b.end());
+
+        int m = max(a.length(), b.length());
+        int n = min(a.length(), b.length());
+        string zeros(m -n, '0');
+        if (a.length() > b.length()) {
+            b.append(zeros);
+        } else if (a.length() < b.length()) {
+            a.append(zeros);
+        }
+
+        // 挨个加
+        int sum   = 0; // 保存每次加法的实际结果
+        int carry = 0; // 保存每次加法的进位
+        int bit   = 0; // 保存每次加法的无进位结果
+        for (int i = 0; i < m; i++) {
+            sum = a[i] - '0' + b[i] - '0' + carry; // 得到实际整数结果
+            bit = sum % 2;    // 获得加法结果
+            carry = bit / 2;  // 获得加法进位
+
+            result.push_back(bit + '0');
+        }
+        // 最高位有进位
+        if (carry == 1) {
+            result.push_back('1');
+        }
+
+        reverse(result.begin(), result.end());
+        return result;
+    }
 };
 
