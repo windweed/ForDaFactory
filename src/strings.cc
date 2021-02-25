@@ -1,11 +1,12 @@
 /**
  * 字符串相关
- * 14最长公共前缀，28实现strstr()，35搜索插入位置
+ * 14最长公共前缀，28实现strstr()，35搜索插入位置，38外观数列，58最后一个单词的长度
 */
 #include <vector>
 #include <string>
 #include <cstring>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 
@@ -70,4 +71,50 @@ public:
         }
         return nums.size();
     }
+
+    /**
+     * @brief leetcode 38 count-and-say 外观数列 easy
+     *      给定一个正整数，输出外观数列的第n项。
+     * @note 外观数列是一个整数序列，从数字1开始，序列中的每一项都是对前一项的描述。
+     * @example 1.  1
+     *          2.  11
+     *          3.  21
+     *          4.  1211
+     *          5.  111221
+    */
+    string countAndSay(int n) {
+        if (n == 1) {
+            return "1";
+        }
+        ostringstream s;
+        string str_to_desc = countAndSay(n - 1);
+        int slow = 0;
+        for (int fast = 1; fast < str_to_desc.length(); fast++) {
+            if (str_to_desc[slow] != str_to_desc[fast]) {
+                s << fast - slow << str_to_desc[slow];
+                slow = fast;
+            }
+        }
+        // last one
+        s << str_to_desc.length() - slow << str_to_desc[slow];
+        return s.str();
+    }
+
+    /**
+     * @brief leetcode 58 length-of-last-word 最后一个单词的长度 easy
+     *      给定一个字符串，由若干单词组成，单词之间用空格隔开，返回字符串中
+     *      最后一个单词的长度。如果不存在最后一个单词，返回0
+     * @example 输入s = "hello world", 输出5;
+     *          输入s = " ", 输出0
+    */
+    int lengthOfLastWord(string s) {
+        istringstream is(s);
+        string input;
+        while (is >> input) {
+            ;
+        }
+        return input.length();
+    }
+
+
 };
