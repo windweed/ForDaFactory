@@ -1,7 +1,7 @@
 /**
  * @file 普通二叉树
- * 100相同的树，101对称二叉树，104最大深度，107层序遍历(自底向上),
- * 110平衡二叉树，111最小深度，114前序遍历
+ * 100相同的树，101对称二叉树，102层序遍历，104最大深度，107层序遍历(自底向上),
+ * 108有序数组转为BST，110平衡二叉树，111最小深度，114前序遍历
 */
 #include "treenode.h"
 #include <iostream>
@@ -80,7 +80,7 @@ public:
                 TreeNode* node = q.front();
                 q.pop();
                 level.push_back(node->val);
-
+                // 准备下一轮
                 if (node->left) {
                     q.push(node->left);
                 }
@@ -148,5 +148,56 @@ public:
         res.push_back(root->val);
         preOrder(root->left, res);
         preOrder(root->right, res);
+    }
+
+    /**
+     * @brief leetcode 102 binary-tree-order-traversal 二叉树层序遍历  medium
+    */
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        auto result = vector<vector<int>>();
+        if (!root) {
+            return result;
+        }
+
+        queue<TreeNode*> workq;
+        workq.push(root);
+        while(!workq.empty()) {
+            auto level = vector<int>();
+            int qsize = workq.size();
+            for (int i = 0; i < qsize; i++) {
+                TreeNode* node = workq.front();
+                workq.pop();
+                level.push_back(node->val);
+
+                if (node->left) {
+                    workq.push(node->left);
+                }
+                if (node->right) {
+                    workq.push(node->right);
+                }
+            }
+            result.push_back(level);
+        }
+        return result;
+    }
+
+    /**
+     * @brief leetcode 108 convert-sorted-array-to-BST 将有序数组转换为二叉搜索树
+     *      easy
+     *      给定一个已按升序排列好的整数数组，将其转换为一颗高度平衡的二叉搜索树。
+    */
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        return createBST(nums, 0, nums.size() - 1);
+    }
+    TreeNode* createBST(vector<int>& nums, int left, int right) {
+        if (left > right) {
+            return nullptr;
+        }
+
+        int idx = (right + left) / 2; // 总是选取中间偏左的数
+        TreeNode* root = new TreeNode(nums[idx]);
+        root->left = createBST(nums, left, idx - 1);
+        root->right = createBST(nums, idx + 1, right);
+        return root;
     }
 };
