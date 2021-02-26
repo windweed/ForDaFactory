@@ -1,6 +1,6 @@
 /**
  * @file 链表
- * 21合并两个有序链表
+ * 21合并两个有序链表，160相交链表
 */
 #include "listnode.h"
 #include <list>
@@ -36,6 +36,23 @@ public:
      * @brief 判断链表是否有环
     */
     bool hasLoop();
+
+    /**
+     * @brief leetcode 160 intersection-of-two-linked-lists 相交链表 easy
+     *      找到两个单链表相交的起始节点。
+    */
+    ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
+        ListNode *pa = headA, *pb = headB;
+        if (!pa || !pb) {
+            return nullptr;
+        }
+
+        while (pa != pb) { // 注意。这是确认有交点才这么写。不然会死循环。不够严谨
+            pa = (pa) ? pa->next : headB;
+            pb = (pb) ? pb->next : headA;
+        }
+        return pa;
+    }
 
 };
 
