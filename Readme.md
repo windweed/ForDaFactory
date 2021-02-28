@@ -6,6 +6,8 @@ DO NOT forget to Update !!!
 
 [src/mylist.cc](src/mylist.cc)  
 * 21-合并两个有序链表:merge-two-sorted-lists
+* 83-删除排序链表中的重复元素:remove-duplicates-from-sorted-list
+* 160-相交链表:intersection-of-two-linked-lists
 
 [src/mystack.cc](src/mystack.cc)  
 * 20-有效的括号:valid-parentheses
@@ -34,7 +36,6 @@ DO NOT forget to Update !!!
 * 35-搜索插入位置:search-insert-positon
 * 38-外观数列:sount-and-say
 * 58-最后一个单词的长度:length-of-last-word
-* 160-相交链表:intersection-of-two-linked-lists
 
 ## 整数
 

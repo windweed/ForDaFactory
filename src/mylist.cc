@@ -1,6 +1,6 @@
 /**
  * @file 链表
- * 21合并两个有序链表，160相交链表
+ * 21合并两个有序链表，83删除排序链表中的重复元素，160相交链表
 */
 #include "listnode.h"
 #include <list>
@@ -36,6 +36,26 @@ public:
      * @brief 判断链表是否有环
     */
     bool hasLoop();
+
+    /**
+     * @brief leetcode 83 remove-duplicates-from-sorted-list
+     *      删除排序链表中的重复元素 easy
+     *      给定一个排序链表，删除所有重复的元素
+     * @example 输入1->1->2 输出 1->2
+    */
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode* curr = head;
+        while (curr && curr->next) {
+            if (curr->val == curr->next->val) {
+                ListNode* tmp = curr->next;
+                curr->next = tmp->next;
+                delete tmp;
+            } else {
+                curr = curr->next;
+            }
+        }
+        return head;
+    }
 
     /**
      * @brief leetcode 160 intersection-of-two-linked-lists 相交链表 easy
