@@ -53,3 +53,5 @@ DO NOT forget to Update !!!
 * 26-删除排序数组中的重复项:remove-duplicates-from-sorted-array
 * 27-移除元素:remove-element
 * 53-最大子序和:maximum-subarray
+* 69-x的平方根:sqrtx
+* 70-爬楼梯:climbing-stairs
