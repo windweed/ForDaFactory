@@ -1,3 +1,7 @@
+/**
+ * 贪心算法 Greedy
+ * 455分发饼干，
+*/
 #include <vector>
 
 using namespace std;
