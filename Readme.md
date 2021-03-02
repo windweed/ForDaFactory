@@ -49,9 +49,17 @@ DO NOT forget to Update !!!
 ## 待定
 
 [src/others.cc](src/others.cc)
+
 * 1-两数之和:tow-sum
 * 26-删除排序数组中的重复项:remove-duplicates-from-sorted-array
 * 27-移除元素:remove-element
 * 53-最大子序和:maximum-subarray
 * 69-x的平方根:sqrtx
 * 70-爬楼梯:climbing-stairs
+
+## 贪心算法
+
+[src/greedy.cc](src/greedy.cc)
+
+* 455-分发饼干:assign-cookies
+
