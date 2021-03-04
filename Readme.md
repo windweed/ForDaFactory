@@ -56,6 +56,7 @@ DO NOT forget to Update !!!
 * 53-最大子序和:maximum-subarray
 * 69-x的平方根:sqrtx
 * 70-爬楼梯:climbing-stairs
+* 88-合并两个有序数组:merge-sorted-array
 
 ## 贪心算法
 
