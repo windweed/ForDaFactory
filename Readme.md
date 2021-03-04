@@ -30,10 +30,13 @@ DO NOT forget to Update !!!
 
 [src/sequence.cc](src/sequence.cc)
 
+### array
 * 26-删除排序数组中的重复项:remove-duplicates-from-sorted-array
 * 27-移除元素:remove-element
 * 53-最大子序和:maximum-subarray
 * 88-合并两个有序数组:merge-sorted-array
+
+### string
 
 * 14-最长公共前缀LCP:Lognest-common-prefix
 * 28-实现strstr():implement-strstr()
