@@ -26,9 +26,14 @@ DO NOT forget to Update !!!
 * BST [src/BST.cc](src/BST.cc)
     + 108-有序数组转为二叉搜索树:convert-sorted-array-to-BST
 
-## 字符串
+## 连续内存
 
-[src/strings.cc](src/strings.cc)
+[src/sequence.cc](src/sequence.cc)
+
+* 26-删除排序数组中的重复项:remove-duplicates-from-sorted-array
+* 27-移除元素:remove-element
+* 53-最大子序和:maximum-subarray
+* 88-合并两个有序数组:merge-sorted-array
 
 * 14-最长公共前缀LCP:Lognest-common-prefix
 * 28-实现strstr():implement-strstr()
@@ -51,12 +56,8 @@ DO NOT forget to Update !!!
 [src/others.cc](src/others.cc)
 
 * 1-两数之和:tow-sum
-* 26-删除排序数组中的重复项:remove-duplicates-from-sorted-array
-* 27-移除元素:remove-element
-* 53-最大子序和:maximum-subarray
 * 69-x的平方根:sqrtx
 * 70-爬楼梯:climbing-stairs
-* 88-合并两个有序数组:merge-sorted-array
 
 ## 贪心算法
 

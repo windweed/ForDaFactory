@@ -1,14 +1,81 @@
 /**
  * @file 连续内存问题。包含数组和字符串。
- * 88合并两个有序数组
+ *       Array:
+ *          26删除排序数组中的重复项，27移除元素，53最大子序和，88合并两个有序数组
+ *       Strings:
+ *          14最长公共前缀，28实现strstr()，35搜索插入位置，38外观数列，58最后一个单词的长度
+ *       
 */
 
 #include <vector>
+#include <string>
+#include <cstring>
+#include <algorithm>
+#include <sstream>
 
 using namespace std;
 
-class SequenceSolution {
+class ArraySolution {
 public:
+    /**
+     * @brief leetcode 26 remove-duplicates-from-sorted-array 删除排序数组中的重复项
+     *      要求原地删除，不能使用额外数组空间，返回移除后数组的新长度。要求O(1)额外空间。
+     *      easy
+     * @example 给定[0,0,1,1,1,2,2,3,3,4], 修改为[0,1,2,3,4],返回5。
+     * @note 快慢指针
+    */
+    int removeDuplicates(vector<int>& nums) {
+        int len = nums.size();
+        if (len == 0) {
+            return 0;
+        }
+
+        int slow = 0, fast = 1;
+        for (; fast < len; fast++) {
+            if (nums[slow] != nums[fast]) {
+                slow++;
+                nums[slow] = nums[fast];
+            }
+        }
+        return slow + 1;
+    }
+
+    /**
+     * @brief leetcode 27 remove-element 移除元素 easy
+     *      给定一个数组和一个值，原地移除所有数值等于val的元素，并返回移除后数组的新长度
+    */
+    int removeElement(vector<int>& nums, int val) {
+        int len = nums.size();
+        if (len == 0) {
+            return 0;
+        }
+
+        int slow = 0, fast = 0;
+        for (; fast < len; fast++) {
+            if (nums[fast] != val) {
+                nums[slow] = nums[fast];
+                slow++;
+            }
+        }
+        return slow;
+    }
+
+    /**
+     * @brief leetcode 53 maximum-subarray 最大子序和 easy
+     *      给定一个整数数组，找到一个具有最大和的连续子数组，返回其最大和
+     * @example 输入 nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4],
+     *      连续子数组[4, -1, 2, 1]的和最大，为6。因此返回6。
+    */
+    int maxSubArray(vector<int>& nums) {
+        int pre = 0, max_ans = nums[0];
+        for (int const& x : nums) {
+            pre = max(pre + x, x);
+            max_ans = max(max_ans, pre);
+        }
+        return max_ans;
+    }
+
+
     /**
      * @brief leetcode 88 merge-soted-array 合并两个有序数组 easy
      *        给定两个有序整数数组nums1和nums2，将nums2合并到nums1中，使nums1成为一个
@@ -41,3 +108,111 @@ public:
     }
 };
 
+class StrSolutioin {
+public:
+    /**
+     * @brief leetcode 14 longest-common-prefix 最长公共前缀
+     * @return 如果不存在公共前缀，返回空字符串。
+    */
+    string longestCommonPrefix(vector<string>& strs) {
+        int cnt = strs.size();
+        if (cnt == 0) {
+            return "";
+        }
+
+        string lcp = strs[0];
+        for (int i = 1; i < cnt; i++) {
+            lcp = lcpTwoStr(lcp, strs[i]);
+            if (lcp.empty()) {
+                break;
+            }
+        }
+        return lcp;
+    }
+    // helper function
+    string lcpTwoStr(string str1, string str2) {
+        int length = min(str1.length(), str2.length());
+        int idx = 0;
+        while (idx < length && str1.at(idx) == str2.at(idx)) {
+            idx++;
+        }
+        return str1.substr(0, idx);
+    }
+
+    /**
+     * @brief leetcode 28 implement-strstr 实现strstr easy
+     * @return 如果不存在，返回-1。
+    */
+    int myStrStr(string haystack, string needle) {
+        int hay_len = haystack.length();
+        int n_len = needle.length();
+
+        for (int i = 0; i < hay_len - n_len + 1; i++) {
+            if (haystack.substr(i, n_len) == needle) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * @brief leetcode 35 search-insert-position 搜索插入位置 easy
+     *      给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果不存在则
+     *      返回将会被插入的位置。
+     * @note 无重复元素。
+    */
+    int searchInsert(vector<int>& nums, int target) {
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] >= target) {
+                return i;
+            }
+        }
+        return nums.size();
+    }
+
+    /**
+     * @brief leetcode 38 count-and-say 外观数列 easy
+     *      给定一个正整数，输出外观数列的第n项。
+     * @note 外观数列是一个整数序列，从数字1开始，序列中的每一项都是对前一项的描述。
+     * @example 1.  1
+     *          2.  11
+     *          3.  21
+     *          4.  1211
+     *          5.  111221
+    */
+    string countAndSay(int n) {
+        if (n == 1) {
+            return "1";
+        }
+        ostringstream s;
+        string str_to_desc = countAndSay(n - 1);
+        int slow = 0;
+        for (int fast = 1; fast < str_to_desc.length(); fast++) {
+            if (str_to_desc[slow] != str_to_desc[fast]) {
+                s << fast - slow << str_to_desc[slow];
+                slow = fast;
+            }
+        }
+        // last one
+        s << str_to_desc.length() - slow << str_to_desc[slow];
+        return s.str();
+    }
+
+    /**
+     * @brief leetcode 58 length-of-last-word 最后一个单词的长度 easy
+     *      给定一个字符串，由若干单词组成，单词之间用空格隔开，返回字符串中
+     *      最后一个单词的长度。如果不存在最后一个单词，返回0
+     * @example 输入s = "hello world", 输出5;
+     *          输入s = " ", 输出0
+    */
+    int lengthOfLastWord(string s) {
+        istringstream is(s);
+        string input;
+        while (is >> input) {
+            ;
+        }
+        return input.length();
+    }
+
+
+};
