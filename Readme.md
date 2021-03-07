@@ -2,7 +2,7 @@
 
 DO NOT forget to Update !!!
 
-## 链表
+## List
 
 [src/mylist.cc](src/mylist.cc)  
 * 21-合并两个有序链表:merge-two-sorted-lists
@@ -12,7 +12,7 @@ DO NOT forget to Update !!!
 [src/mystack.cc](src/mystack.cc)  
 * 20-有效的括号:valid-parentheses
 
-## 树
+## Tree
 
 * 普通二叉树 [src/binary_tree.cc](src/binary_tree.cc)
     + 100-相同的二叉树:same-tree
@@ -26,7 +26,7 @@ DO NOT forget to Update !!!
 * BST [src/BST.cc](src/BST.cc)
     + 108-有序数组转为二叉搜索树:convert-sorted-array-to-BST
 
-## 连续内存
+## Sequence(string and array)
 
 [src/sequence.cc](src/sequence.cc)
 
@@ -44,7 +44,7 @@ DO NOT forget to Update !!!
 * 38-外观数列:sount-and-say
 * 58-最后一个单词的长度:length-of-last-word
 
-## 整数
+## Integer
 
 [src/integers.cc](src/integers.cc)
 
@@ -54,6 +54,13 @@ DO NOT forget to Update !!!
 * 66-加一:plus-one
 * 67-二进制求和:add-binary
 
+## Greedy
+
+[src/greedy.cc](src/greedy.cc)
+
+* 135-分发糖果:candy
+* 455-分发饼干:assign-cookies
+
 ## 待定
 
 [src/others.cc](src/others.cc)
@@ -61,10 +68,3 @@ DO NOT forget to Update !!!
 * 1-两数之和:tow-sum
 * 69-x的平方根:sqrtx
 * 70-爬楼梯:climbing-stairs
-
-## 贪心算法
-
-[src/greedy.cc](src/greedy.cc)
-
-* 135-分发糖果:candy
-* 455-分发饼干:assign-cookies
