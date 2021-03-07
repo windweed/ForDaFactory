@@ -3,7 +3,6 @@
  * 108有序数组生成BST，
 */
 #include "treenode.h"
-#include <vector>
 
 using namespace std;
 

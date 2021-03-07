@@ -3,8 +3,6 @@
  * 21合并两个有序链表，83删除排序链表中的重复元素，160相交链表
 */
 #include "listnode.h"
-#include <list>
-#include <forward_list>
 
 using namespace std;
 

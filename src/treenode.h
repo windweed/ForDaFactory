@@ -1,6 +1,8 @@
 #ifndef TREE_NODE_H
 #define TREE_NODE_H
 
+#include <vector>
+
 // Definition for a binary tree node.
 struct TreeNode {
     int val;
