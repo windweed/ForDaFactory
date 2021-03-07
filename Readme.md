@@ -67,6 +67,5 @@ DO NOT forget to Update !!!
 
 [src/others.cc](src/others.cc)
 
-* 1-两数之和:tow-sum
 * 69-x的平方根:sqrtx
 * 70-爬楼梯:climbing-stairs
