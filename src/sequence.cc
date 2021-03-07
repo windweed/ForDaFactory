@@ -1,7 +1,8 @@
 /**
  * @file 连续内存问题。包含数组和字符串。
  *       Array:
- *          26删除排序数组中的重复项，27移除元素，53最大子序和，88合并两个有序数组
+ *          1两数之和，26删除排序数组中的重复项，27移除元素，53最大子序和，88合并两个有序数组，
+ *          167两数之和II。
  *       Strings:
  *          14最长公共前缀，28实现strstr()，35搜索插入位置，38外观数列，58最后一个单词的长度
  *       
@@ -12,11 +13,43 @@
 #include <cstring>
 #include <algorithm>
 #include <sstream>
+#include <unordered_map>
 
 using namespace std;
 
 class ArraySolution {
 public:
+    /**
+     * @brief leetcode 1 two sum 两数之和 easy
+     *      给定一个整数数组nums和一个整数目标值，在数组中找出和为目标值的那两个整数，
+     *      并返回它们的下标。
+     * @note 可以假设每种输入只会对应一个答案。同一个元素不能使用两遍。
+    */
+    vector<int> towSum(vector<int>& nums, int target) {
+        int len = nums.size();
+        for (int i = 0; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return {i, j};
+                }
+            }
+        }
+        return {};
+    }
+    // 解法2
+    vector<int> twoSum_2(vector<int>& nums, int target) {
+        auto m = unordered_map<int, int>();
+        for (int i = 0; i < nums.size(); i++) {
+            auto it = m.find(target - nums[i]);
+            if (it != m.end()) {
+                return {i, it->second};
+            } else {
+                m[nums[i]] = i;
+            }
+        }
+        return {};
+    }
+
     /**
      * @brief leetcode 26 remove-duplicates-from-sorted-array 删除排序数组中的重复项
      *      要求原地删除，不能使用额外数组空间，返回移除后数组的新长度。要求O(1)额外空间。
@@ -106,7 +139,30 @@ public:
         }
         delete[] sorted;
     }
+
+    /**
+     * @brief leetcode 167 two-sum-ii-input-array-is-sorted 两数之和II easy
+     *        给定一个升序排列的整数数组numbers，从数组中找出两个数满足相加之和等于目标数。
+     *        下标从1开始计数。可以假设每个输入对应的答案唯一，不能使用相同的元素。
+     * @example Input: numbers=[2,7,11,15],target=9
+     *          Output: 1,2
+     * @note 双指针，反向查找。如果两个指针元素和小于target，左指针右移，否则右指针左移。
+    */
+    vector<int> twoSum2(vector<int>& numbers, int target) {
+        int left = 0, right = numbers.size() - 1;
+        int sum;
+        while (left < right) {
+            sum = numbers[left] + numbers[right];
+            if (sum == target) {
+                break;
+            }
+            (sum < target) ? left++ : right--;
+        }
+        return vector<int> {left + 1, right + 1};
+    }
 };
+
+
 
 class StrSolutioin {
 public:
