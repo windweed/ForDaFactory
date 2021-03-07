@@ -7,6 +7,7 @@ DO NOT forget to Update !!!
 [src/mylist.cc](src/mylist.cc)  
 * 21-合并两个有序链表:merge-two-sorted-lists
 * 83-删除排序链表中的重复元素:remove-duplicates-from-sorted-list
+* 142-环形链表:linked-list-cycle-ii
 * 160-相交链表:intersection-of-two-linked-lists
 
 [src/mystack.cc](src/mystack.cc)  

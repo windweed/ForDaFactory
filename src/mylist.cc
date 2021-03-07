@@ -1,6 +1,6 @@
 /**
  * @file 链表
- * 21合并两个有序链表，83删除排序链表中的重复元素，160相交链表
+ * 21合并两个有序链表，83删除排序链表中的重复元素，142环形链表II，160相交链表
 */
 #include "listnode.h"
 
@@ -29,12 +29,6 @@ public:
         return prev_head.next;
     }
 
-
-    /**
-     * @brief 判断链表是否有环
-    */
-    bool hasLoop();
-
     /**
      * @brief leetcode 83 remove-duplicates-from-sorted-list
      *      删除排序链表中的重复元素 easy
@@ -53,6 +47,31 @@ public:
             }
         }
         return head;
+    }
+
+    /**
+     * @brief leetcode 142 linked-list-cycle-ii 环形链表II mideum
+     *        给定一个链表，返回链表入环的第一个节点。无环返回null。不能修改链表。
+     * @note 为了表示给定链表的中的环，我们使用整数pos来表示链表连接到链表中的位置(从0开始)
+     *       如果pos是-1，则在该链表中没有环。注意，pos仅仅用于标识环的情况，不会传入函数。
+    */
+    ListNode* detectCycle(ListNode* head) {
+        ListNode *slow = head, *fast = head;
+        do
+        {
+            if (!fast || !fast->next) {
+                return nullptr;
+            }
+            fast = fast->next->next;
+            slow = slow->next;
+        } while (fast != slow);
+        // 如果有环路，查找环路节点
+        fast = head;
+        while (fast != slow) {
+            slow = slow->next;
+            fast = fast->next;
+        }
+        return fast;
     }
 
     /**
