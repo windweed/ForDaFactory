@@ -1,7 +1,7 @@
 /**
  * @file 普通二叉树
  * 100相同的树，101对称二叉树，102层序遍历，104最大深度，107层序遍历(自底向上),
- * 108有序数组转为BST，110平衡二叉树，111最小深度，114前序遍历
+ * 108有序数组转为BST，110平衡二叉树，111最小深度，112路径总和，114前序遍历
 */
 #include "treenode.h"
 #include <iostream>
@@ -130,6 +130,26 @@ public:
 
         return min_depth + 1;
     }
+    
+    /**
+     * @brief leetcode 112 path-sum 路径总和 easy
+     *        给定二叉树和一个整数，判断树中是否存在一个 根节点到叶子节点的路径，此路径
+     *        上所有节点值的和等于给定的整数。
+    */
+    bool hasPathSum(TreeNode* root, int target) { // recusive
+        if (!root) {
+            return false;
+        }
+
+        if (!root->left && !root->right) { // leaf
+            return root->val == target;
+        }
+
+        return hasPathSum(root->left, target - root->val)
+               || hasPathSum(root->right, target - root->val);
+    }
+    // TODO hasPathSum BFS
+    
     /**
      * @brief leetcode 144 binary-tree-preorder-traversal 二叉树前序遍历 medium
     */
