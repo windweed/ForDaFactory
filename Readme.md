@@ -24,6 +24,7 @@ DO NOT forget to Update !!!
     + 107-二叉树层序遍历II(自底向上):level-order-traversal-II
     + 110-平衡二叉树:balanced-binary-tree
     + 111-二叉树最小深度:minimum-depth-of-binary-tree
+    + 112-路径总和:path-sum
     + 114-二叉树前序遍历:preorder-traversal
 * BST [src/BST.cc](src/BST.cc)
     + 108-有序数组转为二叉搜索树:convert-sorted-array-to-BST
