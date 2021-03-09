@@ -1,6 +1,6 @@
 /**
  * @file 链表
- * 21合并两个有序链表，83删除排序链表中的重复元素，142环形链表II，160相交链表
+ * 21合并两个有序链表，83删除排序链表中的重复元素，141环形链表，142环形链表II，160相交链表
 */
 #include "listnode.h"
 
@@ -50,10 +50,29 @@ public:
     }
 
     /**
+     * @brief leetcode 141 linked-list-cycle 环形链表 easy
+     *        给定一个链表，判断链表中是否有环。
+     * @note Floyd判圈法：快慢指针。
+    */
+    ListNode* hasCycle(ListNode* head) {
+        if (!head || !head->next) {
+            return false;
+        }
+
+        ListNode *slow = head, *fast = head->next;
+        while (slow != fast) {
+            if (!fast || !fast->next) {
+                return false;
+            }
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return true;
+    }
+    
+    /**
      * @brief leetcode 142 linked-list-cycle-ii 环形链表II mideum
      *        给定一个链表，返回链表入环的第一个节点。无环返回null。不能修改链表。
-     * @note 为了表示给定链表的中的环，我们使用整数pos来表示链表连接到链表中的位置(从0开始)
-     *       如果pos是-1，则在该链表中没有环。注意，pos仅仅用于标识环的情况，不会传入函数。
     */
     ListNode* detectCycle(ListNode* head) {
         ListNode *slow = head, *fast = head;
