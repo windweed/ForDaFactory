@@ -1,10 +1,11 @@
 /**
  * @file 连续内存问题。包含数组和字符串。
  *       Array:
- *          1两数之和，26删除排序数组中的重复项，27移除元素，53最大子序和，88合并两个有序数组，
- *          167两数之和II。
+ *          1两数之和，26删除排序数组中的重复项，27移除元素，53最大子序和，
+ *          88合并两个有序数组，167两数之和II。
  *       Strings:
- *          14最长公共前缀，28实现strstr()，35搜索插入位置，38外观数列，58最后一个单词的长度
+ *          14最长公共前缀，28实现strstr()，35搜索插入位置，38外观数列，
+ *          58最后一个单词的长度，1047删除字符串中所有相邻重复项
  *       
 */
 
@@ -37,7 +38,7 @@ public:
         return {};
     }
     // 解法2
-    vector<int> twoSum_2(vector<int>& nums, int target) {
+    vector<int> twoSum_v2(vector<int>& nums, int target) {
         auto m = unordered_map<int, int>();
         for (int i = 0; i < nums.size(); i++) {
             auto it = m.find(target - nums[i]);
@@ -270,5 +271,24 @@ public:
         return input.length();
     }
 
+    /**
+     * @brief leetcode 1047 remove-all-adjacent-duplicates-in-string
+     *        删除字符串中所有相邻重复项 easy
+     *        给定字符串，执行“重复项删除”操作，选择两个相邻且相同的字母并删除它们。
+     *        在给定字符串上反复执行重复项删除操作，直到无法继续删除。
+     * @return 完成所有“重复项删除”操作后的最终字符串。
+     * @analyse: 由于是重复项，而且是两两删除，因此直接选择栈。对C++来说，string即可。
+    */
+    string removeDuplicates1047(string S) {
+        string result = string();
+        for (char const ch : S) {
+            if (!result.empty() && result.back() == ch) {
+                result.pop_back();
+            } else {
+                result.push_back(ch);
+            }
+        }
+        return result;
+    }
 
 };

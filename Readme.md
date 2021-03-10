@@ -48,6 +48,7 @@ DO NOT forget to Update !!!
 * 35-搜索插入位置:search-insert-positon
 * 38-外观数列:sount-and-say
 * 58-最后一个单词的长度:length-of-last-word
+* 1047-删除字符串中所有相邻重复项:remove-all-adjacent-duplicates-in-string
 
 ## Integer
 
