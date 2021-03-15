@@ -2,7 +2,7 @@
  * @file 连续内存问题。包含数组和字符串。
  *       Array:
  *          1两数之和，26删除排序数组中的重复项，27移除元素，53最大子序和，
- *          88合并两个有序数组，167两数之和II。
+ *          88合并两个有序数组，118杨辉三角，167两数之和II。
  *       Strings:
  *          14最长公共前缀，28实现strstr()，35搜索插入位置，38外观数列，
  *          58最后一个单词的长度，1047删除字符串中所有相邻重复项
@@ -140,6 +140,26 @@ public:
         }
         delete[] sorted;
     }
+    
+    /**
+     * @brief leetcode 118 pascals-triangle 杨辉三角 easy
+     *        生成杨辉三角的前n行。
+     * @note 第n行的第i个数等于第n-1行的第i-1和第i个数之和。
+    */
+    vector<vector<int>> generate(int numRows) {
+    auto result = vector<vector<int>>(numRows);
+    for (int i = 0; i < numRows; i++) {
+        vector<int>& curr_row = result[i];
+        curr_row.resize(i + 1);              // 第i行有 i + 1 个数，下标为[0, i]
+        curr_row.front() = curr_row.back() = 1;
+
+        for (int j = 1; j < i; j++) {  // j 的下标范围是 [0, i], 但0和i都已赋1
+            const vector<int>& prev_row = result[i - 1];
+            curr_row[j] = prev_row[j - 1] + prev_row[j];
+        }
+    }
+    return result;
+}
 
     /**
      * @brief leetcode 167 two-sum-ii-input-array-is-sorted 两数之和II easy
