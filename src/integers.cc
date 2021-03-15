@@ -1,6 +1,6 @@
 /**
  * @file 整数相关
- * 7整数反转, 9回文数，13罗马数字转整数，66加一，67二进制求和
+ * 7整数反转, 9回文数，13罗马数字转整数，66加一，67二进制求和，326三的幂
 */
 #include <cstdint>
 #include <string>
@@ -158,5 +158,24 @@ public:
         reverse(result.begin(), result.end());
         return result;
     }
+    
+    /**
+     * @brief leetcode 326 power of three 3的幂 easy
+     *        判断一个整数是否是3的幂
+    */
+    bool isPowerOfThree(int n) {
+        if (n < 1) {
+            return false;
+        }
+        // 一直除以3，只要有一次余数不为0，那说明不是3的幂。
+        while (n != 1) {
+            if (n % 3 != 0) {
+                return false;
+            }
+            n /= 3;
+        }
+        return true;
+    }
+    
 };
 
