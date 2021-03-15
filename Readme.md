@@ -1,6 +1,6 @@
 # Leetcode
 
-DO NOT forget to Update !!!
+Try not to understand it, feel it.
 
 ## List
 
@@ -13,7 +13,8 @@ DO NOT forget to Update !!!
 
 [src/mystack.cc](src/mystack.cc)  
 * 20-有效的括号:valid-parentheses
-
+[src/min_stack.cc](src/min_stack.cc)  
+* 155-最小栈:min-stack
 ## Tree
 
 * 普通二叉树 [src/binary_tree.cc](src/binary_tree.cc)
