@@ -39,6 +39,7 @@ DO NOT forget to Update !!!
 * 27-移除元素:remove-element
 * 53-最大子序和:maximum-subarray
 * 88-合并两个有序数组:merge-sorted-array
+* 118-杨辉三角:pascals-triangle
 * 167-两数之和II:two-sum-ii-input-is-sorted
 
 ### string
