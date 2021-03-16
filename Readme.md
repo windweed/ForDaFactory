@@ -1,6 +1,6 @@
 # Leetcode
 
-Try not to understand it, feel it.
+Don't try to understand it, feel it.
 
 ## List
 
