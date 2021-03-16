@@ -41,6 +41,7 @@ Try not to understand it, feel it.
 * 53-最大子序和:maximum-subarray
 * 88-合并两个有序数组:merge-sorted-array
 * 118-杨辉三角:pascals-triangle
+* 119-杨辉三角II:pascalls-triangle-ii
 * 167-两数之和II:two-sum-ii-input-is-sorted
 
 ### string
