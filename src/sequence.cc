@@ -5,7 +5,7 @@
  *          88合并两个有序数组，118杨辉三角，119杨辉三角II，167两数之和II。
  *       Strings:
  *          14最长公共前缀，28实现strstr()，35搜索插入位置，38外观数列，
- *          58最后一个单词的长度，1047删除字符串中所有相邻重复项
+ *          58最后一个单词的长度，125验证回文串，1047删除字符串中所有相邻重复项
  *       
 */
 
@@ -305,6 +305,22 @@ public:
             ;
         }
         return input.length();
+    }
+
+    /**
+     * @brief leetcode 125 valid-palindrome 验证回文串 easy
+     *        判断给定的字符串是否为回文串。只考虑字母和数字，忽略大小写。
+    */
+    bool isPalindrome(string s) {
+        string coll;
+        for (const char& ch : s) {
+            if (isalnum(ch)) {
+                coll.push_back(tolower(ch));
+            }
+        }
+
+        string rev_str {coll.rbegin(), coll.rend()};
+        return rev_str == coll;
     }
 
     /**

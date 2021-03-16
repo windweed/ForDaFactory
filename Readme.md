@@ -51,6 +51,7 @@ Don't try to understand it, feel it.
 * 35-搜索插入位置:search-insert-positon
 * 38-外观数列:sount-and-say
 * 58-最后一个单词的长度:length-of-last-word
+* 125-验证回文串:valid-palindrome
 * 1047-删除字符串中所有相邻重复项:remove-all-adjacent-duplicates-in-string
 
 ## Integer
@@ -77,3 +78,4 @@ Don't try to understand it, feel it.
 
 * 69-x的平方根:sqrtx
 * 70-爬楼梯:climbing-stairs
+* 121-买卖股票的最佳时机:best-time-to-buy-and-sell-stock 
