@@ -147,18 +147,18 @@ public:
      * @note 第n行的第i个数等于第n-1行的第i-1和第i个数之和。
     */
     vector<vector<int>> generate(int numRows) {
-    auto result = vector<vector<int>>(numRows);
-    for (int i = 0; i < numRows; i++) {
-        vector<int>& curr_row = result[i];
-        curr_row.resize(i + 1);              // 第i行有 i + 1 个数，下标为[0, i]
-        curr_row.front() = curr_row.back() = 1;
+        auto result = vector<vector<int>>(numRows);
+        for (int i = 0; i < numRows; i++) {
+            vector<int>& curr_row = result[i];
+            curr_row.resize(i + 1);              // 第i行有 i + 1 个数，下标为[0, i]
+            curr_row.front() = curr_row.back() = 1;
 
-        for (int j = 1; j < i; j++) {  // j 的下标范围是 [0, i], 但0和i都已赋1
-            curr_row[j] = result[i - 1][j - 1] + result[i - 1][j];
+            for (int j = 1; j < i; j++) {  // j 的下标范围是 [0, i], 但0和i都已赋1
+                curr_row[j] = result[i - 1][j - 1] + result[i - 1][j];
+            }
         }
+        return result;
     }
-    return result;
-}
 
     /**
      * @brief leetcode 167 two-sum-ii-input-array-is-sorted 两数之和II easy
