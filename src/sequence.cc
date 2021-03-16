@@ -154,8 +154,7 @@ public:
         curr_row.front() = curr_row.back() = 1;
 
         for (int j = 1; j < i; j++) {  // j 的下标范围是 [0, i], 但0和i都已赋1
-            const vector<int>& prev_row = result[i - 1];
-            curr_row[j] = prev_row[j - 1] + prev_row[j];
+            curr_row[j] = result[i - 1][j - 1] + result[i - 1][j];
         }
     }
     return result;
