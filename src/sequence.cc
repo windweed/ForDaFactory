@@ -2,7 +2,7 @@
  * @file 连续内存问题。包含数组和字符串。
  *       Array:
  *          1两数之和，26删除排序数组中的重复项，27移除元素，53最大子序和，
- *          88合并两个有序数组，118杨辉三角，167两数之和II。
+ *          88合并两个有序数组，118杨辉三角，119杨辉三角II，167两数之和II。
  *       Strings:
  *          14最长公共前缀，28实现strstr()，35搜索插入位置，38外观数列，
  *          58最后一个单词的长度，1047删除字符串中所有相邻重复项
@@ -158,6 +158,23 @@ public:
             }
         }
         return result;
+    }
+    
+    /**
+     * @brief leetcode 119 pascals-triangle-ii 杨辉三角II easy
+     *        求杨辉三角的第n(从0开始数)行。
+    */
+    vector<int> getRow(int rowIndex) {
+        vector<int> pre, cur;
+        for (int i = 0; i <= rowIndex; i++) {
+            cur.resize(i + 1);
+            cur.front() = cur.back() = 1;
+            for (int j = 1; j < i; j++) {
+                cur[j] = pre[j - 1] + pre[j];
+            }
+            pre = cur;
+        }
+        return pre;
     }
 
     /**
