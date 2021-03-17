@@ -1,7 +1,7 @@
 /**
  * @file 普通二叉树
- * 100相同的树，101对称二叉树，102层序遍历，104最大深度，107层序遍历(自底向上),
- * 108有序数组转为BST，110平衡二叉树，111最小深度，112路径总和，114前序遍历
+ *       100相同的树，101对称二叉树，102层序遍历，104最大深度，107层序遍历(自底向上),
+ *       110平衡二叉树，111最小深度，112路径总和，114前序遍历
 */
 #include "treenode.h"
 #include <iostream>
@@ -198,25 +198,5 @@ public:
             result.push_back(level);
         }
         return result;
-    }
-
-    /**
-     * @brief leetcode 108 convert-sorted-array-to-BST 将有序数组转换为二叉搜索树
-     *      easy
-     *      给定一个已按升序排列好的整数数组，将其转换为一颗高度平衡的二叉搜索树。
-    */
-    TreeNode* sortedArrayToBST(vector<int>& nums) {
-        return createBST(nums, 0, nums.size() - 1);
-    }
-    TreeNode* createBST(vector<int>& nums, int left, int right) {
-        if (left > right) {
-            return nullptr;
-        }
-
-        int idx = (right + left) / 2; // 总是选取中间偏左的数
-        TreeNode* root = new TreeNode(nums[idx]);
-        root->left = createBST(nums, left, idx - 1);
-        root->right = createBST(nums, idx + 1, right);
-        return root;
     }
 };
