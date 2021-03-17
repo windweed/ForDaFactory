@@ -1,6 +1,6 @@
 /**
  * @file BST 二叉搜索树。高度平衡的BST主要实现有AVL树和红黑树，其中红黑树的使用更加的广泛。
- * 108有序数组生成BST，
+ *       108有序数组生成BST，235BST的最近公共祖先
 */
 #include "treenode.hh"
 #include <vector>
@@ -29,5 +29,26 @@ public:
         root->right = createBST(nums, idx + 1, right);
         return root;
     }
+
+    /**
+     * @brief 235 lowest-common-ancestor-of-a-binary-search-tree
+     *            BST的最近公共祖先 easy
+     * @note 一个节点也可以是自己的祖先
+     * @note 由于BST的特殊性，两个节点的最近公共祖先就是从根开始第一个满足 p < root < q
+     *       的节点。准确点说，是第一个不满足()
+    */
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        TreeNode *node = root;
+        while (node) {
+            if (p->val < node->val && q->val < node->val) {
+                node = node->left;
+            } else if (p->val > node->val && q->val > node->val) {
+                node = node->right;
+            } else {
+                return node;
+            }
+        }
+    }
+    
 };
 
