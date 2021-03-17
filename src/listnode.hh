@@ -1,9 +1,6 @@
 #ifndef LIST_NODE_H
 #define LIST_NODE_H
 
-#include <list>
-#include <forward_list>
-
 // Definition for singly-linked list.
 struct ListNode {
     int val;
