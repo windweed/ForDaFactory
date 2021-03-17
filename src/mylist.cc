@@ -2,7 +2,9 @@
  * @file 链表
  * 21合并两个有序链表，83删除排序链表中的重复元素，141环形链表，142环形链表II，160相交链表
 */
-#include "listnode.h"
+#include "listnode.hh"
+#include <list>
+#include <forward_list>
 
 using namespace std;
 
@@ -54,7 +56,7 @@ public:
      *        给定一个链表，判断链表中是否有环。
      * @note Floyd判圈法：快慢指针。
     */
-    ListNode* hasCycle(ListNode* head) {
+    bool hasCycle(ListNode* head) {
         if (!head || !head->next) {
             return false;
         }
