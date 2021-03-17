@@ -6,5 +6,7 @@
         "numeric": "cpp",
         "unordered_map": "cpp",
         "vector": "cpp"
-    }
+    },
+    "files.autoSave": "afterDelay",
+    "files.trimTrailingWhitespace": true
 }
