@@ -2,7 +2,8 @@
  * @file 连续内存问题。包含数组和字符串。
  *       Array:
  *          1两数之和，26删除排序数组中的重复项，27移除元素，53最大子序和，
- *          88合并两个有序数组，118杨辉三角，119杨辉三角II，167两数之和II。
+ *          88合并两个有序数组，118杨辉三角，119杨辉三角II，167两数之和II，
+ *          724寻找数组的中心下标，
  *       Strings:
  *          14最长公共前缀，28实现strstr()，35搜索插入位置，38外观数列，
  *          58最后一个单词的长度，125验证回文串，1047删除字符串中所有相邻重复项
@@ -196,6 +197,30 @@ public:
             (sum < target) ? left++ : right--;
         }
         return vector<int> {left + 1, right + 1};
+    }
+
+    /**
+     * @brief leetcode 724 find-pivot-index 寻找数组的中心下标 easy
+     *        给定一个整数数组，返回一个“中心下标”，其左侧所有元素相加的和
+     *        等于右侧所有元素相加的和。
+     *        下标可能在两端(不存在元素，和视作0)
+     * @return 若不存在，返回-1；如果有多个，返回最靠左的那个。
+     * @example ① Input: nums = [1, 7, 3, 6, 5, 6], Output: 3;
+     *          ② Input: nums = [1, 2, 3], Output: -1;
+     *          ③ Input: nums = [2, 1, -1], Output: 0;
+    */
+    int pivotIndex(vector<int>& nums) {
+        const int total = accumulate(nums.begin(), nums.end(), 0);
+        int len = nums.size();
+        int sum = 0;
+        for (int i = 0; i < len; i++) {
+            sum += nums[i]; // 当前为止的和
+            // 当前位置，左边和为 sum - nums[i], 右边和为total - sum
+            if (sum - nums[i] == total - sum) {
+                return i;
+            }
+        }
+        return -1;
     }
 };
 

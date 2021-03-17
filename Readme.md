@@ -43,6 +43,7 @@ Don't try to understand it, feel it.
 * 118-杨辉三角:pascals-triangle
 * 119-杨辉三角II:pascalls-triangle-ii
 * 167-两数之和II:two-sum-ii-input-is-sorted
+* 724-寻找数组的中心下标:find-pivot-index
 
 ### string
 
