@@ -18,6 +18,7 @@ Don't try to understand it, feel it.
 ## Tree
 
 * 普通二叉树 [src/binary_tree.cc](src/binary_tree.cc)
+    + 94-二叉树中序遍历:inorder-traversal
     + 100-相同的二叉树:same-tree
     + 101-对称二叉树:symmetric-tree
     + 102-二叉树层序遍历:level-order-traversal
@@ -26,7 +27,8 @@ Don't try to understand it, feel it.
     + 110-平衡二叉树:balanced-binary-tree
     + 111-二叉树最小深度:minimum-depth-of-binary-tree
     + 112-路径总和:path-sum
-    + 114-二叉树前序遍历:preorder-traversal
+    + 144-二叉树前序遍历:preorder-traversal
+    + 145-二叉树后序遍历:postorder-traversal
 * BST [src/BST.cc](src/BST.cc)
     + 108-有序数组转为二叉搜索树:convert-sorted-array-to-BST
 

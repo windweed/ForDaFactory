@@ -1,9 +1,10 @@
 /**
  * @file 普通二叉树
- *       100相同的树，101对称二叉树，102层序遍历，104最大深度，107层序遍历(自底向上),
- *       110平衡二叉树，111最小深度，112路径总和，114前序遍历
+ *       94中序遍历，100相同的树，101对称二叉树，102层序遍历，104最大深度，
+ *       107层序遍历(自底向上), 110平衡二叉树，111最小深度，112路径总和，144前序遍历，
+ *       145后序遍历
 */
-#include "treenode.h"
+#include "treenode.hh"
 #include <vector>
 #include <queue>
 #include <algorithm>
@@ -149,24 +150,23 @@ public:
                || hasPathSum(root->right, target - root->val);
     }
     // TODO hasPathSum BFS
-    
+
     /**
-     * @brief leetcode 144 binary-tree-preorder-traversal 二叉树前序遍历 medium
+     * @brief leetcode 94 binary-tree-inorder-traversal 二叉树中序遍历 mideum
     */
-    vector<int> preorderTraversal(TreeNode* root) {
+    vector<int> inOrderTraversal(TreeNode* root){
         auto res = vector<int>();
-        preOrder(root, res);
+        inOrder(root, res);
         return res;
     }
-    // helper function
-    void preOrder(TreeNode* root, vector<int>& res) {
+    // inOrder helper function
+    void inOrder(TreeNode* root, vector<int>& res) {
         if (!root) {
             return;
         }
-
+        inOrder(root->left, res);
         res.push_back(root->val);
-        preOrder(root->left, res);
-        preOrder(root->right, res);
+        inOrder(root->right, res);
     }
 
     /**
@@ -199,4 +199,43 @@ public:
         }
         return result;
     }
+
+    /**
+     * @brief leetcode 144 binary-tree-preorder-traversal 二叉树前序遍历 medium
+    */
+    vector<int> preOrderTraversal(TreeNode* root) {
+        auto res = vector<int>();
+        preOrder(root, res);
+        return res;
+    }
+    // preOrder helper function
+    void preOrder(TreeNode* root, vector<int>& res) {
+        if (!root) {
+            return;
+        }
+
+        res.push_back(root->val);
+        preOrder(root->left, res);
+        preOrder(root->right, res);
+    }
+
+    /**
+     * @brief leetcode 145 binary-tree-postorder-traversal 二叉树后序遍历 mideum
+    */
+    vector<int> postOrderTraversal(TreeNode* root){
+        auto res = vector<int>();
+        postOrder(root, res);
+        return res;
+    }
+    // postOrder helper function
+    void postOrder(TreeNode* root, vector<int>& res) {
+        if (!root) {
+            return;
+        }
+        postOrder(root->left, res);
+        postOrder(root->right, res);
+        res.push_back(root->val);
+    }
+
+
 };
