@@ -7,7 +7,7 @@
  *       Strings:
  *          14最长公共前缀，28实现strstr()，35搜索插入位置，38外观数列，
  *          58最后一个单词的长度，125验证回文串，1047删除字符串中所有相邻重复项
- *       
+ *
 */
 
 #include <vector>
@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <sstream>
 #include <unordered_map>
+#include <numeric>
 
 using namespace std;
 
@@ -32,11 +33,11 @@ public:
         for (int i = 0; i < len; i++) {
             for (int j = i + 1; j < len; j++) {
                 if (nums[i] + nums[j] == target) {
-                    return {i, j};
+                    return vector<int>{i, j};
                 }
             }
         }
-        return {};
+        return vector<int>{};
     }
     // 解法2
     vector<int> twoSum_v2(vector<int>& nums, int target) {
@@ -44,12 +45,12 @@ public:
         for (int i = 0; i < nums.size(); i++) {
             auto it = m.find(target - nums[i]);
             if (it != m.end()) {
-                return {i, it->second};
+                return vector<int>{i, it->second};
             } else {
-                m[nums[i]] = i;
+                m.insert({nums[i], i});
             }
         }
-        return {};
+        return vector<int>{};
     }
 
     /**
@@ -141,7 +142,7 @@ public:
         }
         delete[] sorted;
     }
-    
+
     /**
      * @brief leetcode 118 pascals-triangle 杨辉三角 easy
      *        生成杨辉三角的前n行。
@@ -160,7 +161,7 @@ public:
         }
         return result;
     }
-    
+
     /**
      * @brief leetcode 119 pascals-triangle-ii 杨辉三角II easy
      *        求杨辉三角的第n(从0开始数)行。
