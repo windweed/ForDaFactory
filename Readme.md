@@ -7,9 +7,11 @@ Don't try to understand it, feel it.
 [src/mylist.cc](src/mylist.cc)  
 * 21-合并两个有序链表:merge-two-sorted-lists
 * 83-删除排序链表中的重复元素:remove-duplicates-from-sorted-list
+* 92-反转链表II:reverse-linked-listt-ii
 * 141-环形链表:linked-list-cycle
 * 142-环形链表:linked-list-cycle-ii
 * 160-相交链表:intersection-of-two-linked-lists
+* 206-反转一个单链表:reverse-linked-list
 
 [src/mystack.cc](src/mystack.cc)  
 * 20-有效的括号:valid-parentheses

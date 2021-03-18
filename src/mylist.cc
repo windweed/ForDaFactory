@@ -1,10 +1,9 @@
 /**
  * @file 链表
- * 21合并两个有序链表，83删除排序链表中的重复元素，141环形链表，142环形链表II，160相交链表
+ *       21合并两个有序链表，83删除排序链表中的重复元素，92反转链表II，
+ *       141环形链表，142环形链表II，160相交链表，206反转一个单链表
 */
 #include "listnode.hh"
-#include <list>
-#include <forward_list>
 
 using namespace std;
 
@@ -49,6 +48,39 @@ public:
             }
         }
         return head;
+    }
+
+    /**
+     * @brief leetcode 92 reverse-linked-list-ii 反转链表II mideum
+     *        给定单链表的头节点head和两个位置left,right（从1开始数），
+     *        其中left<=right，反转从left到right的链表节点。返回反转后的链表。
+     * @example Input: head=[1,2,3,4,5], left=2,right=4; Output:[1,4,3,2,5]
+     * @note 借助206 @c reverseList , 反转指定区间后再拼上去。
+    */
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        ListNode dummyNode = ListNode(-1);
+        dummyNode.next = head;
+        ListNode* preNode = &dummyNode;
+        // preNode 保存left的前一个节点。
+        for (int i = 0; i < left - 1; i++) {
+            preNode = preNode->next;
+        }
+        // 走到right
+        ListNode* rightNode = preNode;
+        for (int i = 0; i < right - left + 1; i++) {
+            rightNode = rightNode->next;
+        }
+        // 截取链表
+        ListNode* leftNode = preNode->next; // 截取的链表的开头
+        ListNode* curr = rightNode->next;   // 截取的链表尾的后面一个节点
+        rightNode->next = nullptr;
+        preNode->next = nullptr;
+        reverseList(leftNode);
+
+        // 接回去
+        preNode->next = rightNode; // rightNode现在指向截取的链表的新头
+        leftNode->next = curr;     // leftNode现在指向截取的链表的尾
+        return dummyNode.next;
     }
 
     /**
@@ -112,6 +144,21 @@ public:
         return pa;
     }
 
+    /**
+     * @brief leetcode 206 reverse-linked-list 反转一个单链表 easy
+     * @note 将当前节点的next改为前边的节点，so，需要事先存储后一个节点，修改后为了能
+     *       继续往下，所以还需要存储后一个节点。
+    */
+    ListNode* reverseList(ListNode* head) {
+        ListNode *prev = nullptr, *curr = head;
+        while (curr) {
+            ListNode* next = curr->next; // 提前存好下一个，这样修改curr->next后可以继续
+            curr->next = prev;           // 修改curr->next，指向前一个
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
 };
 
 
