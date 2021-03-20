@@ -1,8 +1,9 @@
 /**
  * @file 栈相关问题
- * 20有效的括号
+ *       20有效的括号，150逆波兰表达式求值
 */
 #include <stack>
+#include <vector>
 #include <string>
 #include <unordered_map>
 
@@ -38,6 +39,37 @@ public:
             }
         }
         return workstack.empty();
+    }
+
+    /**
+     * @brief leetcode 150 evaluate-reverse-polish-notation 求逆波兰表达式 mideum
+     * @note 逆波兰表达式：也称后缀表达式。没有括号，运算符总是在它相关的操作数之后。
+     * @example Input: tokens = ["2", "1", "+", "3", "*"], Output: 9
+    */
+    int evalRPN(vector<string>& tokens) {
+        auto stk = stack<int>();
+        for (const string& s : tokens) {
+            if (!isOperator(s)) {
+                stk.push(atoi(s.c_str()));
+            } else {
+                int r = stk.top();  stk.pop();  // 右操作符首先弹出
+                int l = stk.top();  stk.pop();
+
+                switch (s[0])
+                {
+                case '+': stk.push(l + r); break;
+                case '-': stk.push(l - r); break;
+                case '*': stk.push(l * r); break;
+                case '/': stk.push(l / r); break;
+                default: break;
+                }
+            }
+        }
+        return stk.top();
+    }
+    // hlp
+    bool isOperator(const string& s) {
+        return s == "+" || s == "-" || s == "*" || s == "/";
     }
 };
 

@@ -4,7 +4,7 @@ Don't try to understand it, feel it.
 
 ## List
 
-[src/mylist.cc](src/mylist.cc)  
+[src/mylist.cc](src/mylist.cc)
 * 21-合并两个有序链表:merge-two-sorted-lists
 * 83-删除排序链表中的重复元素:remove-duplicates-from-sorted-list
 * 92-反转链表II:reverse-linked-listt-ii
@@ -13,9 +13,10 @@ Don't try to understand it, feel it.
 * 160-相交链表:intersection-of-two-linked-lists
 * 206-反转一个单链表:reverse-linked-list
 
-[src/mystack.cc](src/mystack.cc)  
+[src/mystack.cc](src/mystack.cc)
 * 20-有效的括号:valid-parentheses
-[src/min_stack.cc](src/min_stack.cc)  
+* 150-逆波兰表达式求值:evaluate-reverse-polish-notation
+[src/min_stack.cc](src/min_stack.cc)
 * 155-最小栈:min-stack
 ## Tree
 
@@ -84,4 +85,4 @@ Don't try to understand it, feel it.
 
 * 69-x的平方根:sqrtx
 * 70-爬楼梯:climbing-stairs
-* 121-买卖股票的最佳时机:best-time-to-buy-and-sell-stock 
+* 121-买卖股票的最佳时机:best-time-to-buy-and-sell-stock
