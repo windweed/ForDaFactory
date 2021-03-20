@@ -16,8 +16,8 @@ Don't try to understand it, feel it.
 [src/mystack.cc](src/mystack.cc)
 * 20-有效的括号:valid-parentheses
 * 150-逆波兰表达式求值:evaluate-reverse-polish-notation
-[src/min_stack.cc](src/min_stack.cc)
 * 155-最小栈:min-stack
+
 ## Tree
 
 * 普通二叉树 [src/binary_tree.cc](src/binary_tree.cc)
