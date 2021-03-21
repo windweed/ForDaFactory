@@ -32,6 +32,7 @@ Don't try to understand it, feel it.
     + 112-路径总和:path-sum
     + 144-二叉树前序遍历:preorder-traversal
     + 145-二叉树后序遍历:postorder-traversal
+    + 543-二叉树的直径:diameter-of-binary-tree
 * BST [src/BST.cc](src/BST.cc)
     + 108-有序数组转为二叉搜索树:convert-sorted-array-to-BST
     + 235-BST的最近公共祖先:lowest-common-ancestor-of-a-binary-search-tree

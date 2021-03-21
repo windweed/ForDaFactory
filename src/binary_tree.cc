@@ -2,12 +2,13 @@
  * @file 普通二叉树
  *       94中序遍历，100相同的树，101对称二叉树，102层序遍历，104最大深度，
  *       107层序遍历(自底向上), 110平衡二叉树，111最小深度，112路径总和，144前序遍历，
- *       145后序遍历
+ *       145后序遍历，543二叉树的直径
 */
 #include "treenode.hh"
 #include <vector>
 #include <queue>
 #include <algorithm>
+#include <cstdint>
 
 using namespace std;
 
@@ -131,7 +132,7 @@ public:
 
         return min_depth + 1;
     }
-    
+
     /**
      * @brief leetcode 112 path-sum 路径总和 easy
      *        给定二叉树和一个整数，判断树中是否存在一个 根节点到叶子节点的路径，此路径
@@ -237,5 +238,35 @@ public:
         res.push_back(root->val);
     }
 
+    /**
+     * @brief leetcode 543 diameter-of-binary-tree 二叉树的直径 easy
+     *        给定一颗二叉树，计算它的直径长度。即任意两个节点路径最短路径中的最大值。
+     *        这条路径可能穿过也可能不穿过根节点。
+     *        两节点之间的路径长度是它们之间的边数。
+     * @example Input: [1, [2,3], [4,5,null,null]], Output: 3。(4213)or(5213)
+     * @note DFS
+     *       0, 路径长等于该路径上的节点数减1。
+     *          任意一条路径均可以看作由某节点为起点，从其左右儿子分别向下遍历的路径
+     *          拼接得到。
+     *       1，如何求的两个叶子节点之间的路径长度。(根节点左右儿子深度之和)
+     *          若对于某节点，以其左儿子为根的子树最大深度为L,右子树最大深度为R，那么，
+     *          以该节点为起点的路径经过节点数的最大值即为 L + R + 1
+    */
+    int ans543 = -1;
+    int diameterOfBinaryTree(TreeNode* root) {
+        ans543 = 1;
+        depth543(root);
+        return ans543 - 1;
+    }
+    // helper 计算某个节点的深度
+    int depth543(TreeNode* node) {
+        if (!node) {
+            return 0;
+        }
+        int L = depth543(node->left);
+        int R = depth543(node->right);
+        ans543 = max(ans543, L + R + 1); // 更新最大值
+        return 1 + max(L , R);
+    }
 
 };

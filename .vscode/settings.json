@@ -5,7 +5,8 @@
         "ranges": "cpp",
         "numeric": "cpp",
         "unordered_map": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "cstdint": "cpp"
     },
     "files.autoSave": "afterDelay",
     "files.trimTrailingWhitespace": true
