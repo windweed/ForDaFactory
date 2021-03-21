@@ -45,6 +45,7 @@ Don't try to understand it, feel it.
 * 26-删除排序数组中的重复项:remove-duplicates-from-sorted-array
 * 27-移除元素:remove-element
 * 53-最大子序和:maximum-subarray
+* 73-矩阵置零:set-matrix-zeros
 * 88-合并两个有序数组:merge-sorted-array
 * 118-杨辉三角:pascals-triangle
 * 119-杨辉三角II:pascalls-triangle-ii

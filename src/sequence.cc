@@ -2,7 +2,7 @@
  * @file 连续内存问题。包含数组和字符串。
  *       Array:
  *          1两数之和，26删除排序数组中的重复项，27移除元素，53最大子序和，
- *          88合并两个有序数组，118杨辉三角，119杨辉三角II，167两数之和II，
+ *          73矩阵置零，88合并两个有序数组，118杨辉三角，119杨辉三角II，167两数之和II，
  *          724寻找数组的中心下标，
  *       Strings:
  *          14最长公共前缀，28实现strstr()，35搜索插入位置，38外观数列，
@@ -109,6 +109,38 @@ public:
             max_ans = max(max_ans, pre);
         }
         return max_ans;
+    }
+
+    /**
+     * @brief leetcode 73 set-matrix-zeros 矩阵置零 medium
+     *        给定一个mxn的矩阵，如果某一行或某一列存在0，那么将这一行或列全置0
+     * @example Input: [[1,1,1], [1,0,1], [1,1,1]],
+     *          Output: [[1,0,1], [0, 0, 0], [1.0,1]]
+     * @solution 遍历，把有0的行标记好，然后再遍历进行修改
+    */
+    void setZeros(vector<vector<int>>& matrix) {
+        int m = matrix.size();
+        int n = matrix.at(0).size();
+        vector<bool> rows(m), cols(n); // 保存各行列是否有0
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] == 0) {
+                    rows[i] = true;
+                    cols[j] = true;
+                }
+            }
+        }
+        // 修改
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (rows[i]) {
+                    matrix[i][j] = 0;
+                }
+                if (cols[j]) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
     }
 
 
