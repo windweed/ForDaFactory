@@ -1,10 +1,12 @@
 /**
  * @file 整数相关
- * 7整数反转, 9回文数，13罗马数字转整数，66加一，67二进制求和，326三的幂
+ *       7整数反转, 9回文数，13罗马数字转整数，66加一，67二进制求和，326三的幂
+ *       191位1的个数
 */
 #include <cstdint>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -158,7 +160,7 @@ public:
         reverse(result.begin(), result.end());
         return result;
     }
-    
+
     /**
      * @brief leetcode 326 power of three 3的幂 easy
      *        判断一个整数是否是3的幂
@@ -176,6 +178,19 @@ public:
         }
         return true;
     }
-    
+
+    /**
+     * @brief leetcode 191 number-of-1-bits 位1的个数 easy
+    */
+    int hammingWeight(uint32_t n) {
+        int ret = 0;
+        for (int i = 0; i < 32; i++) {
+            if (n & (1 << i)) {
+                ret++;
+            }
+        }
+        return ret;
+    }
+
 };
 

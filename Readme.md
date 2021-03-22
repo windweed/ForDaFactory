@@ -72,6 +72,7 @@ Don't try to understand it, feel it.
 * 13-罗马数字转整数:roman-to-integer
 * 66-加一:plus-one
 * 67-二进制求和:add-binary
+* 191-位1的个数:number-of-1-bits
 * 326-3的幂:power-of-three
 
 ## Greedy

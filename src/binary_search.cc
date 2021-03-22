@@ -6,7 +6,7 @@
 class BinSearchSolution {
 public:
     /**
-     * @brief 50: Pow(x, n)
+     * @brief 50: Pow(x, n) easy
      *        Implement `pow(x, n)`, which calculates `x` raised to the power n
      * @example ① Input: x=2.00000, n = 10; Output: 1024.0000
      *          ② Input: x=2.1, n=3; Output: 9.261
