@@ -24,7 +24,7 @@ public:
             return true;
         } else if (!p || !q) {// one null, the other one not null
             return false;
-        } else if (p->val != p->val) { // root
+        } else if (p->val != q->val) { // root
             return false;
         } else {
             return isSameTree(p->left, q->left)
@@ -47,7 +47,9 @@ public:
             return false;
         }
 
-        return p->val == q->val && check(p->left, q->right) && check(p->right, q->left);
+        return p->val == q->val &&
+               check(p->left, q->right) &&
+               check(p->right, q->left);
     }
     /**
      * @brief leetcode 104 maximum-depth-of-binary-tree 二叉树的最大深度 easy
@@ -75,9 +77,8 @@ public:
         queue<TreeNode*> q;
         q.push(root);
         while(!q.empty()) {
-            size_t lsize = q.size();
             vector<int> level;
-            for (size_t i = 0; i < lsize; i++) {
+            for (size_t i = 0; i < q.size(); i++) {
                 TreeNode* node = q.front();
                 q.pop();
                 level.push_back(node->val);
@@ -147,8 +148,8 @@ public:
             return root->val == target;
         }
 
-        return hasPathSum(root->left, target - root->val)
-               || hasPathSum(root->right, target - root->val);
+        return hasPathSum(root->left, target - root->val) ||
+               hasPathSum(root->right, target - root->val);
     }
     // TODO hasPathSum BFS
 
@@ -183,8 +184,7 @@ public:
         workq.push(root);
         while(!workq.empty()) {
             auto level = vector<int>();
-            int qsize = workq.size();
-            for (int i = 0; i < qsize; i++) {
+            for (int i = 0; i < workq.size(); i++) {
                 TreeNode* node = workq.front();
                 workq.pop();
                 level.push_back(node->val);

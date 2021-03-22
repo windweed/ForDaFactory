@@ -26,6 +26,7 @@ public:
             }
             prev = prev->next;
         }
+        // 由于一次只走一步，因此l1和l2不可能同时为nullptr
         prev->next = l1 ? l1 : l2;
         return prev_head.next;
     }
@@ -112,7 +113,7 @@ public:
         ListNode *slow = head, *fast = head;
         do
         {
-            if (!fast || !fast->next) {
+            if (!fast || !fast->next) { // 到达了结尾，并没有环
                 return nullptr;
             }
             fast = fast->next->next;
@@ -146,7 +147,7 @@ public:
 
     /**
      * @brief leetcode 206 reverse-linked-list 反转一个单链表 easy
-     * @note 将当前节点的next改为前边的节点，so，需要事先存储后一个节点，修改后为了能
+     * @note 将当前节点的next改为前边的节点，so，需要事先存储前一个节点，修改后为了能
      *       继续往下，所以还需要存储后一个节点。
     */
     ListNode* reverseList(ListNode* head) {

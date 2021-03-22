@@ -56,7 +56,7 @@ public:
     int findContentChildren(vector<int>& children, vector<int>& cookies) {
         sort(children.begin(), children.end());
         sort(cookies.begin(), cookies.end());
- 
+
         // 策略：对每一个孩子，在当前剩余的饼干中找最小的那块，找到了就再为下一个孩子找。
         int child = 0, curr_cookie = 0;
         while (child < children.size() && curr_cookie < cookies.size()) {
@@ -66,7 +66,7 @@ public:
             }
             curr_cookie++;
         }
-        
+
         return child;
     }
 };

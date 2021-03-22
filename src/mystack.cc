@@ -51,7 +51,7 @@ public:
         for (const string& s : tokens) {
             if (!isOperator(s)) {
                 stk.push(atoi(s.c_str()));
-            } else {
+            } else { // 遇到操作符，弹出两个数，运算后再入栈
                 int r = stk.top();  stk.pop();  // 右操作符首先弹出
                 int l = stk.top();  stk.pop();
 
