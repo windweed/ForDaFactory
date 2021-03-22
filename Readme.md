@@ -88,3 +88,10 @@ Don't try to understand it, feel it.
 * 69-x的平方根:sqrtx
 * 70-爬楼梯:climbing-stairs
 * 121-买卖股票的最佳时机:best-time-to-buy-and-sell-stock
+
+## 二分查找
+
+[src/binary_search.cc](src/binary_search.cc)
+
+* 50-x的幂:powx-n
+
