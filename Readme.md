@@ -1,4 +1,4 @@
-# Leetcode
+# Leetcode C++ Solution
 
 Don't try to understand it, feel it.
 
