@@ -134,7 +134,8 @@ public:
 
         int m = max(a.length(), b.length());
         int n = min(a.length(), b.length());
-        string zeros(m -n, '0');
+        // maybe m equals to n
+        string zeros(m - n, '0');
         if (a.length() > b.length()) {
             b.append(zeros);
         } else if (a.length() < b.length()) {
@@ -143,8 +144,8 @@ public:
 
         // 挨个加
         int sum   = 0; // 保存每次加法的实际结果
-        int carry = 0; // 保存每次加法的进位
         int bit   = 0; // 保存每次加法的无进位结果
+        int carry = 0; // 保存每次加法的进位
         for (int i = 0; i < m; i++) {
             sum = a[i] - '0' + b[i] - '0' + carry; // 得到实际整数结果
             bit = sum % 2;    // 获得加法结果
