@@ -73,6 +73,7 @@ Don't try to understand it, feel it.
 * 66-加一:plus-one
 * 67-二进制求和:add-binary
 * 191-位1的个数:number-of-1-bits
+* 204-计数质数:count-primes
 * 326-3的幂:power-of-three
 
 ## Greedy
