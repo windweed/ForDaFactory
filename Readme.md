@@ -73,6 +73,7 @@ Don't try to understand it, feel it.
 * 66-加一:plus-one
 * 67-二进制求和:add-binary
 * 191-位1的个数:number-of-1-bits
+* 204-计数质数:count-primes
 * 326-3的幂:power-of-three
 
 ## Greedy
@@ -89,6 +90,7 @@ Don't try to understand it, feel it.
 * 69-x的平方根:sqrtx
 * 70-爬楼梯:climbing-stairs
 * 121-买卖股票的最佳时机:best-time-to-buy-and-sell-stock
+* 341-扁平化嵌套列表迭代器:flatten-nested-list-iterator
 
 ## 二分查找
 

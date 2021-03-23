@@ -1,7 +1,7 @@
 /**
  * @file 整数相关
  *       7整数反转, 9回文数，13罗马数字转整数，66加一，67二进制求和，326三的幂
- *       191位1的个数
+ *       191位1的个数，204计数质数
 */
 #include <cstdint>
 #include <string>
@@ -193,5 +193,31 @@ public:
         return ret;
     }
 
+
+    /**
+     * @brief leetcode 204 count-primes 计数质数 easy
+     *        统计所有小于非负整数n的质数的数量
+     * @note 埃氏筛。
+     *       如果x是质数，那么，2x, 3x,4x...都不是质数。
+     *       设 isPrime[i] 表示数i是不是质数，如果i是，那么，将其所有倍数，
+     *       i除外，都标记为0.
+     *       优化：对于一个质数x，从2x开始标记其实是冗余的，可以直接从x*x开始。
+     *       因为2x,3x这些数一定在x之前就被标记过了，如2的倍数，3的倍数
+    */
+    int countPrimes(int n) {
+        vector<int> isPrime(n, 1);
+        int ans = 0;
+        for (int i = 2; i < n; i++) {
+            if (isPrime[i]) {
+                ans++;
+                if ((long long) i * i < n) {
+                    for (int j = i * i; j < n; j += i) {
+                        isPrime[j] = 0;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
 };
 

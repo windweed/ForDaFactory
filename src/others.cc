@@ -1,5 +1,6 @@
 /**
- * 69x的平方根，70爬楼梯，121买卖股票的最佳时机
+ * @file 待定
+ *       69x的平方根，70爬楼梯，121买卖股票的最佳时机，341扁平化嵌套列表迭代器
 */
 #include <vector>
 #include <string>
@@ -64,10 +65,52 @@ public:
     }
 };
 
+/**
+ * @brief leetcode 341 flatten-nested-list-iterator 扁平化嵌套列表迭代器 medium
+ *        给定一个嵌套的整型列表。请设计一个迭代器，使其能够遍历这个整型数组列表中
+ *        的所有整数。列表中的每一项或为一个整数，或为另一个列表。
+ * @example ① Input: [[1,1], 2, [1,1]]; Output: [1,1,2,1,1]
+ *          ② Input: [1, [4, [6]]]; Output: [1,4,6]
+*/
+// interface of nested lists
+class NestedInteger {
+public:
+    bool isInteger() const;
+    int getInteger() const;
+    const vector<NestedInteger>& getList() const;
+};
+// 嵌套的整型列表是一个树形结构，树上的叶子对应一个整数，非叶子对应一个列表
+// 在这棵树上DFS的顺序就是迭代器遍历的顺序
+// 可以先遍历整个嵌套列表，将所有整数存入一个数组，然后遍历该数组，从而实现next和hasNext方法
+class NestedIterator {
+private:
+    vector<int> vals;
+    vector<int>::iterator cur;
 
+    void dfs(const vector<NestedInteger>& nestedList) {
+        for (auto& nest : nestedList) {
+            if (nest.isInteger()) {
+                vals.push_back(nest.getInteger());
+            } else {
+                dfs(nest.getList());
+            }
+        }
+    }
 
+public:
+    NestedIterator(vector<NestedInteger>& nestedList) {
+        dfs(nestedList);
+        cur = vals.begin();
+    }
 
+    int next() {
+        return *cur++;
+    }
 
+    bool hasNext() {
+        return cur != vals.end();
+    }
+};
 
 
 
